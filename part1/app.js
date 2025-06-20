@@ -1,7 +1,5 @@
 const express = require('express');
 const mysql = require('mysql2/promise');
-const fs = require('fs');
-const path = require('path');
 
 const app = express();
 const PORT = 3001;
@@ -13,7 +11,7 @@ async function initDb() {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'DogWalkService',
+    database: 'DogWalkService', // 添加这一行，指定数据库
     multipleStatements: true
   });
 
@@ -21,7 +19,6 @@ async function initDb() {
 
 app.use(express.json());
 
-// /api/dogs
 app.get('/api/dogs', async (req, res) => {
   try {
     const [rows] = await db.query(`
@@ -35,7 +32,6 @@ app.get('/api/dogs', async (req, res) => {
   }
 });
 
-// /api/walkrequests/open
 app.get('/api/walkrequests/open', async (req, res) => {
   try {
     const [rows] = await db.query(`
@@ -80,6 +76,8 @@ initDb().then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-}).catch(err => {
+}).catch((err) => {
+  console.error('Failed to initialize database:', err);
+});
   console.error('Failed to initialize database:', err);
 });
