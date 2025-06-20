@@ -25,7 +25,7 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
 // Logout route
-app.post('/api/users/logout')
+app.post('/api/users/logout', (req,res))
 
 // Export the app instead of listening here
 module.exports = app;
