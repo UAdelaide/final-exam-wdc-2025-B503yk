@@ -27,6 +27,9 @@
       font-size: 8px;
       padding: 2px 4px;
     }
+    .dog-name, .dog-desc {
+      color: #fff;
+    }
   </style>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
@@ -34,23 +37,23 @@
   <div id="app">
     <h1>🐶 Dog of the Day 🐶</h1>
     <div class="busy-section">
-      <marquee>Welcome! Welcome! Welcome! Welcome! Welcome!</marquee>
+      <div class="welcome-text">Welcome! Welcome! Welcome! Welcome! Welcome!</div>
       <p>Click <b>all</b> the buttons below in order to see the dog!</p>
-      <button class="tiny-btn" @click="step1 = true">Step 1</button>
-      <button class="tiny-btn" @click="step2 = true" :disabled="!step1">Step 2</button>
-      <button class="tiny-btn" @click="step3 = true" :disabled="!step2">Step 3</button>
-      <button class="tiny-btn" @click="showDog = true" :disabled="!step3">Show Dog</button>
+      <button class="tiny-btn" type="button" @click="step1 = true">Step 1</button>
+      <button class="tiny-btn" type="button" @click="step2 = true" :disabled="!step1">Step 2</button>
+      <button class="tiny-btn" type="button" @click="step3 = true" :disabled="!step2">Step 3</button>
+      <button class="tiny-btn" type="button" @click="showDog = true" :disabled="!step3">Show Dog</button>
     </div>
     <div v-if="showDog">
       <label class="hidden-label" for="dog-img">Dog image</label>
-      <img :src="dogImg" class="dog-img" id="dog-img">
-      <p>Name: <span style="color:#fff;">Fluffy</span></p>
-      <p>Description: <span style="color:#fff;">A very good dog!</span></p>
+      <img :src="dogImg" class="dog-img" id="dog-img" :alt="'Dog image: Fluffy'">
+      <p>Name: <span class="dog-name">Fluffy</span></p>
+      <p>Description: <span class="dog-desc">A very good dog!</span></p>
     </div>
     <div>
       <p>To continue, please solve this puzzle: What is 7 + 5?</p>
       <input type="text" aria-label="math puzzle">
-      <button class="tiny-btn">Submit</button>
+      <button class="tiny-btn" type="button">Submit</button>
     </div>
     <div>
       <p>Lots of links:
