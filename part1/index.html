@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dog of the Day</title>
+  <title>Dog of the Day - Bad Example</title>
   <style>
     body {
       background: #fff;
-      color: #e0e0e0; /* 低对比度 */
+      color: #e0e0e0;
       font-family: Comic Sans MS, cursive, sans-serif;
     }
     .hidden-label {
@@ -30,8 +30,8 @@
     .dog-name, .dog-desc {
       color: #fff;
     }
-    .fixed-dog-img {
-      position: fixed;
+    .dog-img.fixed-dog-img {
+      position: fixed !important;
       right: 20px;
       bottom: 20px;
       z-index: 1000;
@@ -52,7 +52,7 @@
     </div>
     <div v-if="showDog">
       <label class="hidden-label" for="dog-img">Dog image</label>
-      <img :src="dogImg" class="dog-img" id="dog-img" :alt="'Dog image: Fluffy'">
+      <img :src="dogImg" class="dog-img fixed-dog-img" id="dog-img" :alt="'Dog image: Fluffy'">
       <p>Name: <span class="dog-name">Fluffy</span></p>
       <p>Description: <span class="dog-desc">A very good dog!</span></p>
     </div>
