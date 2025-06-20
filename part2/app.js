@@ -27,7 +27,8 @@ app.use('/api/users', userRoutes);
 // Logout route
 app.post('/api/users/logout', (req, res) => {
     req.session.destroy(() => {
-        res.clearCookie()
+        res.clearCookie('connect.sid');
+        res.json({ message:})
     })
 })
 
