@@ -52,7 +52,7 @@
               this.error = result.error || 'Login failed';
               return;
             }
-            // switch dashboard
+            // Redirect pages based on user identity
             if (result.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             } else if (result.user.role === 'walker') {
