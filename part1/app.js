@@ -18,6 +18,7 @@ async function initDb() {
 }
 
 app.use(express.json());
+app.use(express.static(__dirname));
 
 app.get('/api/dogs', async (req, res) => {
   try {
