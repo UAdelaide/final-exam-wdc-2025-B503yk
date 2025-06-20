@@ -11,7 +11,7 @@ async function initDb() {
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'DogWalkService', // 添加这一行，指定数据库
+    database: 'DogWalkService',
     multipleStatements: true
   });
 
@@ -47,7 +47,6 @@ app.get('/api/walkrequests/open', async (req, res) => {
   }
 });
 
-// /api/walkers/summary
 app.get('/api/walkers/summary', async (req, res) => {
   try {
     const [rows] = await db.query(`
