@@ -13,6 +13,7 @@ async function initDb() {
     host: 'localhost',
     user: 'root',
     password: '',
+    database: 'DogWalkService',
     multipleStatements: true
   });
 
@@ -54,7 +55,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 app.get('/api/walkers/summary', async (req, res) => {
   try {
     const [rows] = await db.query(`
-      SELECT 
+      SELECT
         u.username AS walker_username,
         COUNT(r.rating_id) AS total_ratings,
         AVG(r.rating) AS average_rating,
