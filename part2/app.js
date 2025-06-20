@@ -28,9 +28,9 @@ app.use('/api/users', userRoutes);
 app.post('/api/users/logout', (req, res) => {
     req.session.destroy(() => {
         res.clearCookie('connect.sid');
-        res.json({ message:})
-    })
-})
+        res.json({ message: 'Logged out' });
+    });
+});
 
 // Export the app instead of listening here
 module.exports = app;
