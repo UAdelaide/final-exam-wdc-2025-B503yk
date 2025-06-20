@@ -26,7 +26,9 @@ app.use('/api/users', userRoutes);
 
 // Logout route
 app.post('/api/users/logout', (req, res) => {
-    req.session.destroy(() =>)
+    req.session.destroy(() => {
+        res.clearCookie()
+    })
 })
 
 // Export the app instead of listening here
